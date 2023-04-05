@@ -83,7 +83,7 @@ class LoginService
             event(new Lockout($this->getRequest()));
 
             throw ValidationException::withMessages([
-                'email' => trans('auth.failed', [
+                'email' => trans('auth.throttle', [
                     'seconds' => RateLimiter::availableIn($this->throttleKey()),
                 ])
             ]);
